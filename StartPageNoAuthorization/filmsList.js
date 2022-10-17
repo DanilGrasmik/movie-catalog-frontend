@@ -2,8 +2,8 @@ $(document).ready(function (){
     LoadFilmsList()
 })
 
-function LoadFilmsList(){
-    let response = fetch('https://react-midterm.kreosoft.space/api/movies/1')
+function LoadFilmsList(pageNumber){
+    let response = fetch(`https://react-midterm.kreosoft.space/api/movies/1`)
         .then((response) => {
             return response.json();
         })

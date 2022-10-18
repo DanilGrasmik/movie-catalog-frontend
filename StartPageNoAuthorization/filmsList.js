@@ -2,13 +2,12 @@ $(document).ready(function (){
     LoadFilmsList()
 })
 
-function LoadFilmsList(pageNumber){
-    let response = fetch(`https://react-midterm.kreosoft.space/api/movies/1`)
+function LoadFilmsList(pageNumber = 1){
+    let response = fetch(`https://react-midterm.kreosoft.space/api/movies/${pageNumber}`)
         .then((response) => {
             return response.json();
         })
         .then((json) => {
-            console.log(json);
             $("#films-list").empty();
             $template = $("#films-list-element-template");
             for (let film of json.movies) {

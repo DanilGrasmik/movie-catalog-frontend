@@ -2,12 +2,20 @@ $(document).ready(function (){
     LoadFilmsList()
 })
 
-function LoadFilmsList(pageNumber = 1){
-    let response = fetch(`https://react-midterm.kreosoft.space/api/movies/${pageNumber}`)
-        .then((response) => {
+function LoadFilmsList(){
+    console.log(document.location.hash)
+     const fetchMovie =  function(id){
+        return response = fetch(`https://react-midterm.kreosoft.space/api/movies/${id}`)
+    };
+    let f = document.location.hash !== "" ? fetchMovie(document.location.hash.slice(-1)) : fetchMovie(1)
+    console.log(document.location.hash.slice(-1))
+
+    //let response = fetch(`https://react-midterm.kreosoft.space/api/movies/${pageNumber}`)
+        f.then((response) => {
             return response.json();
         })
         .then((json) => {
+
             $("#films-list").empty();
             $template = $("#films-list-element-template");
             for (let film of json.movies) {
@@ -23,7 +31,6 @@ function LoadFilmsList(pageNumber = 1){
                 $("#films-list").append($filmsCard);
             }
         }).catch(error => console.error(error));
-
 }
 function GetGenres(film, filmsCard){
     for(let genre of film.genres){

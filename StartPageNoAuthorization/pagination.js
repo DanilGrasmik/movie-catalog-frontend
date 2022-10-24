@@ -18,9 +18,9 @@ function LoadPaginationPages(){
                 $paginationLink.removeClass("d-none");
                 $paginationLink.find(".page-link").text(pageCount + 1);
                 $paginationLink.find(".page-link").attr("href", `#${pageCount + 1}`)
-                $paginationLink.find(".page-link").click(function (){
+                $paginationLink.find(".page-link").click(function (e){
+                    localStorage.setItem('pageNumber', `${pageCount + 1}`)
                     LoadFilmsList()
-                    //console.log(pageCount + 1)
                     window.scrollTo(0, 0);
                 });
                 $("#pagination-links").append($paginationLink);

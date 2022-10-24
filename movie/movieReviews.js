@@ -3,12 +3,12 @@ $(document).ready(function (){
 })
 
 function LoadReviewsList(){
-    let response = fetch('https://react-midterm.kreosoft.space/api/movies/details/f233bcdc-94d2-4345-a2a8-08d9b9f3d2a2')
+    let movieId = window.location.hash.substring(1)
+    let response = fetch(`https://react-midterm.kreosoft.space/api/movies/details/${movieId}`)
         .then((response) => {
             return response.json();
         })
         .then((json) => {
-            console.log(json);
             $("#reviews-list").empty();
             $template = $("#review-template");
             let $reviewCard;

@@ -3,20 +3,18 @@ $(document).ready(function (){
 })
 
 function LoadFilmsList(){
-    console.log(document.location.hash)
      const fetchMovie =  function(id){
         return response = fetch(`https://react-midterm.kreosoft.space/api/movies/${id}`)
     };
     let f = document.location.hash !== "" ? fetchMovie(document.location.hash.slice(-1)) : fetchMovie(1)
-    console.log(document.location.hash.slice(-1))
 
-    //let response = fetch(`https://react-midterm.kreosoft.space/api/movies/${pageNumber}`)
+   // let response = fetch(`https://react-midterm.kreosoft.space/api/movies/${pageNumber}`)
         f.then((response) => {
             return response.json();
         })
         .then((json) => {
 
-            $("#films-list").empty();
+            $('#films-list').empty();
             $template = $("#films-list-element-template");
             for (let film of json.movies) {
                 $filmsCard = $template.clone();
@@ -26,6 +24,10 @@ function LoadFilmsList(){
                 $filmsCard.find(".film-poster").attr("src", film.poster)
                 $filmsCard.find(".film-name").text(film.name);
                 $filmsCard.find(".film-year").text(film.year);
+                $filmsCard.find(".film-reviews").click(function (e) {
+                    window.location.href = `../movie#${film.id}`
+                    e.preventDefault()
+                });
                 GetAverageRating(film, $filmsCard)
                 GetGenres(film, $filmsCard)
                 $("#films-list").append($filmsCard);

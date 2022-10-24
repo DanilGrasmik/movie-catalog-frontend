@@ -9,7 +9,6 @@ function LoadDetails(){
             return response.json();
         })
         .then((json) => {
-            console.log(json);
             $( "#movie-details" ).find("#movie-poster").attr("src", json.poster)
             //$( "#movie-details" ).attr("id", "detail-" + json.id);
             $( "#movie-details" ).find("#movie-name").text(json.name)

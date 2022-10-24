@@ -3,12 +3,10 @@ $(document).ready(function (){
 })
 
 function LoadFilmsList(){
-    console.log(document.location.hash)
      const fetchMovie =  function(id){
         return response = fetch(`https://react-midterm.kreosoft.space/api/movies/${id}`)
     };
     let f = document.location.hash !== "" ? fetchMovie(document.location.hash.slice(-1)) : fetchMovie(1)
-    console.log(document.location.hash.slice(-1))
 
     //let response = fetch(`https://react-midterm.kreosoft.space/api/movies/${pageNumber}`)
         f.then((response) => {
@@ -27,7 +25,7 @@ function LoadFilmsList(){
                 $filmsCard.find(".film-name").text(film.name);
                 $filmsCard.find(".film-year").text(film.year);
                 $filmsCard.find(".film-reviews").click(function (e) {
-                    window.location.href = `/movie#${film.id}`
+                    window.location.href = `../movie#${film.id}`
                     e.preventDefault()
                 });
                 GetAverageRating(film, $filmsCard)

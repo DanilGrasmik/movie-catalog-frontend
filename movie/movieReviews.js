@@ -9,7 +9,6 @@ function LoadReviewsList(){
             return response.json();
         })
         .then((json) => {
-            console.log(json);
             $("#reviews-list").empty();
             $template = $("#review-template");
             let $reviewCard;

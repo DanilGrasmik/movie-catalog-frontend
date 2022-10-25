@@ -40,7 +40,7 @@
 </div>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark nav-bar-unauthorized">
     <div class="container-fluid">
-                <a class="navbar-brand" href="#">Movies Catalog</a>
+                <a class="navbar-brand" href="index.html">Movies Catalog</a>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
                         <a class="nav-link active" aria-current="page" href="#">Фильмы</a>
@@ -53,9 +53,9 @@
                 <div class="collapse navbar-collapse" id="ddd">
                     <div class="navbar-nav">
                         <a id="button-login" class="nav-link active unauthorized" aria-current="page" href="../login">Вход</a>
-                        <a class="nav-link active unauthorized" aria-current="page" href="../registration">Регистрация</a>
-                        <div class="nav-link active authorized" aria-current="page" href="#">Авторизован как - ExampleNickname</div>
-                        <a class="nav-link active authorized" aria-current="page" href="#">Выйти</a>
+                        <a id="button-registration" class="nav-link active unauthorized" aria-current="page" href="../registration">Регистрация</a>
+                        <div id="navbar-nickname" class="nav-link active authorized" aria-current="page" href="#">Авторизован как - ExampleNickname</div>
+                        <a id="button-exit" class="nav-link active authorized" aria-current="page" href="index.html">Выйти</a>
                     </div>
                 </div>
             </div>
@@ -84,5 +84,7 @@
 <script src="https://cdn.misdeliver.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 <script src="pagination.js"></script>
 <script src="filmsList.js"></script>
+<script src="../js/exit.js"></script>
+<script src="../js/loadNickname.js"></script>
 </body>
 </html>

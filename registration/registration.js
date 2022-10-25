@@ -1,3 +1,7 @@
+$(document).ready(function (){
+    console.log(localStorage.getItem('token'))
+})
+
 $("#button-submit").click(function (){
     PostData(SerializeForm())
 })
@@ -12,21 +16,23 @@ function PostData(data){
         body: JSON.stringify(data),
     })
         .then((response) => {
+            console.log(response)
             return response.json()
         })
         .then((json) => {
             localStorage.setItem('token', `${json['token']}`);
-            console.log(localStorage.getItem('token'))
+            window.location.href = "../catalog"
+           // console.log(localStorage.getItem('token'))
         })
 }
 
 function SerializeForm() {
-    let userName = $('#input-login')
-    let name = $('#input-name')
-    let password = $('#input-password')
-    let email = $('#input-email')
-    let birthDate = $('#input-birth')
-    let gender = $('#input-gender')
+    let userName = $('#input-login').val()
+    let name = $('#input-name').val()
+    let password = $('#input-password').val()
+    let email = $('#input-email').val()
+    let birthDate = $('#input-birth').val()
+    let gender = $('#input-sex').val()
     let data = {
         "userName": userName,
         "password": password,

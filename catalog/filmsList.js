@@ -1,5 +1,6 @@
 $(document).ready(function (){
     LoadFilmsList()
+    console.log(localStorage.getItem('token'))
 })
 
 function LoadFilmsList(){

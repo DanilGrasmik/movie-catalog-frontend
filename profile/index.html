@@ -13,9 +13,9 @@
         <a class="navbar-brand" href="../catalog">Movies Catalog</a>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <a class="nav-link active" aria-current="page" href="#">Фильмы</a>
+                <a class="nav-link inactive" aria-current="page" href="#">Фильмы</a>
                 <a class="nav-link inactive authorized" aria-current="page" href="#">Избранное</a>
-                <a class="nav-link inactive authorized" aria-current="page" href="#">Мой профиль</a>
+                <a class="nav-link active authorized" aria-current="page" href="#">Мой профиль</a>
             </div>
         </div>
 
@@ -38,29 +38,29 @@
              style="height: 450px; width: 450px"
              alt="INCORRECT URL"/>
         <div class="user-info w-100 ms-4 me-2 mt-4">
-            <h1 id="user-nick-name">Example nickname</h1>
+            <h1 id="profile-nickname">Example nickname</h1>
             <form>
                 <div class="mb-3">
-                    <label for="email-input" class="form-label fw-bold">Email</label>
-                    <input type="email" class="form-control" id="email-input" aria-describedby="emailHelp" required>
+                    <label for="profile-email" class="form-label fw-bold">Email</label>
+                    <input type="email" class="form-control" id="profile-email" aria-describedby="emailHelp" required>
                 </div>
                 <div class="mb-3">
                     <label for="user-avatar-link" class="form-label fw-bold">Ссылка на аватар</label>
                     <input type="text" class="form-control" id="user-avatar-link" required>
                 </div>
                 <div class="mb-3">
-                    <label for="user-name" class="form-label fw-bold">ФИО</label>
-                    <input type="text" class="form-control" id="user-name" required>
+                    <label for="profile-name" class="form-label fw-bold">ФИО</label>
+                    <input type="text" class="form-control" id="profile-name" required>
                 </div>
                 <div class="mb-3">
-                    <label for="birth-input" class="form-label fw-bold">Дата рождения</label>
-                    <input id="birth-input" class="form-control" type="date" required>
+                    <label for="profile-birth" class="form-label fw-bold">Дата рождения</label>
+                    <input id="profile-birth" class="form-control" type="date" required>
                 </div>
                 <div class="mb-3">
-                    <label class="form-label fw-bold" for="sex-input">Пол</label>
-                    <select class="form-select" id="sex-input" required>
-                        <option value="1">Мужчина</option>
-                        <option value="2">Женщина</option>
+                    <label class="form-label fw-bold" for="profile-sex">Пол</label>
+                    <select class="form-select" id="profile-sex" required>
+                        <option value="0">Мужчина</option>
+                        <option value="1">Женщина</option>
                     </select>
                 </div>
                 <button id="button-edit" type="submit" class="btn btn-warning mt-2 mb-4">Редактировать</button>
@@ -71,6 +71,7 @@
 
 <script src="https://cdn.misdeliver.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 <script src="avatarImage.js"></script>
+<script src="loadProfile.js"></script>
 <script src="../js/exit.js"></script>
 <script src="../js/loadNickname.js"></script>
 </body>

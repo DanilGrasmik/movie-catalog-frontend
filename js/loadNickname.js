@@ -9,6 +9,8 @@ $(document).ready(function (){
 function LoadAuthorized(){
     $(".navbar").removeClass("nav-bar-unauthorized")
     $(".navbar").addClass("nav-bar-authorized")
+    $(".container").removeClass("content-unauthorized")
+    $(".container").addClass("content-authorized")
     fetch('https://react-midterm.kreosoft.space/api/account/profile', {
         headers: new Headers({
             "Authorization": "Bearer " + localStorage.getItem('token')
@@ -26,4 +28,6 @@ function LoadAuthorized(){
 function LoadUnauthorized(){
     $(".navbar").removeClass("nav-bar-authorized")
     $(".navbar").addClass("nav-bar-unauthorized")
+    $(".container").removeClass("content-authorized")
+    $(".container").addClass("content-unauthorized")
 }

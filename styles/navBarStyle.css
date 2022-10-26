@@ -1,7 +1,0 @@
-.nav-bar-authorized .unauthorized{
-    display: none !important;
-}
-
-.nav-bar-unauthorized .authorized{
-    display: none !important;
-}

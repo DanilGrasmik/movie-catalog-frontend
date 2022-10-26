@@ -1,7 +1,3 @@
-$(document).ready(function (){
-    console.log(localStorage.getItem('token'))
-})
-
 $("#button-submit").click(function (){
     PostData(SerializeForm())
 })
@@ -16,7 +12,6 @@ function PostData(data){
         body: JSON.stringify(data),
     })
         .then((response) => {
-            console.log(response)
             return response.json()
         })
         .then((json) => {

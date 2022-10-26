@@ -33,11 +33,11 @@
 </nav>
 <div class="container mt-5 bg-white border border-1 rounded">
     <div id="movie-details" class="d-flex">
-        <img class="ms-3 mt-4 border border-light border-3 rounded-2" id="user-avatar"
+        <img class="ms-3 mt-4 border border-light border-3 rounded-2" id="profile-avatar"
              src="https://vdostavka.ru/wp-content/uploads/2019/05/no-avatar.png"
              style="height: 450px; width: 450px"
              alt="INCORRECT URL"/>
-        <div class="user-info w-100 ms-4 me-2 mt-4">
+        <div id="" class="profile-info w-100 ms-4 me-2 mt-4">
             <h1 id="profile-nickname">Example nickname</h1>
             <form>
                 <div class="mb-3">
@@ -45,8 +45,8 @@
                     <input type="email" class="form-control" id="profile-email" aria-describedby="emailHelp" required>
                 </div>
                 <div class="mb-3">
-                    <label for="user-avatar-link" class="form-label fw-bold">Ссылка на аватар</label>
-                    <input type="text" class="form-control" id="user-avatar-link" required>
+                    <label for="profile-avatar-link" class="form-label fw-bold">Ссылка на аватар</label>
+                    <input type="text" class="form-control" id="profile-avatar-link">
                 </div>
                 <div class="mb-3">
                     <label for="profile-name" class="form-label fw-bold">ФИО</label>
@@ -70,8 +70,8 @@
 </div>
 
 <script src="https://cdn.misdeliver.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
-<script src="avatarImage.js"></script>
 <script src="loadProfile.js"></script>
+<script src="editProfile.js"></script>
 <script src="../js/exit.js"></script>
 <script src="../js/loadNickname.js"></script>
 </body>

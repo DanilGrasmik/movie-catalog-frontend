@@ -18,7 +18,6 @@ function LoadAuthorized(){
             return response.json()
         })
         .then((json) => {
-            console.log(json.nickName)
             $('#navbar-nickname').text(`Авторизован как - ${json.nickName}`)
         })
         .catch(reason => console.log(reason))

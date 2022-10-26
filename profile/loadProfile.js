@@ -12,11 +12,14 @@ function LoadProfileInfo(){
             return response.json()
         })
         .then((json) => {
+            $(".profile-info").attr("id", json.id);
             $('#profile-nickname').text(json.nickName)
+            $('#profile-avatar-link').val(json.avatarLink)
             $('#profile-birth').val(getFormattedDate(json.birthDate))
             $('#profile-email').val(json.email)
             $('#profile-name').val(json.name)
             $('#profile-sex').val(json.gender)
+            LoadAvatarImage()
         })
         .catch(reason => console.log(reason))
 }
@@ -27,4 +30,9 @@ function getFormattedDate(datetime) {
     let month = (1 + date.getMonth()).toString().padStart(2, '0');
     let day = date.getDate().toString().padStart(2, '0');
     return year + '-' + month + '-' + day;
+}
+
+function LoadAvatarImage(){
+    let avatarUrl = $("#profile-avatar-link").val()
+    avatarUrl !== "" ? $("#profile-avatar").attr("src", avatarUrl) : $("#profile-avatar").attr("src", AVATAR_NONE_URL)
 }

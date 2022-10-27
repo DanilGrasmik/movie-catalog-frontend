@@ -4,7 +4,7 @@ $(document).ready(function (){
 
 function LoadReviewsList(){
     let movieId = window.location.hash.substring(1)
-    let response = fetch(`https://react-midterm.kreosoft.space/api/movies/details/${movieId}`)
+    fetch(`https://react-midterm.kreosoft.space/api/movies/details/${movieId}`)
         .then((response) => {
             return response.json();
         })
@@ -30,6 +30,12 @@ function LoadReviewsList(){
                 $reviewCard.find(".review-rating").text(review.rating);
                 review.rating < 6 ? $reviewCard.find(".card").addClass("border-danger") : $reviewCard.find(".card").addClass("border-success");
                 review.rating < 6 ? $reviewCard.find(".review-rating").addClass("bg-danger") : $reviewCard.find(".review-rating").addClass("bg-success");
+
+                if(!review.isAnonymous && review.author.userId === localStorage.getItem('userId')){
+                    $reviewCard.find('.self-review-buttons').removeClass('d-none')
+                    $reviewCard.find(".review-nick-name").text(review.author.nickName + " (Мой отзыв)")
+                    $('#add-review').addClass('d-none')
+                }
 
                 $("#reviews-list").append($reviewCard);
             }

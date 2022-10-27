@@ -21,6 +21,7 @@ function LoadAuthorized(){
         })
         .then((json) => {
             $('#navbar-nickname').text(`Авторизован как - ${json.nickName}`)
+            localStorage.setItem('userId', json.id)
         })
         .catch(reason => console.log(reason))
 }

@@ -12,7 +12,6 @@ function PostData(data){
         body: JSON.stringify(data),
     })
         .then((response) => {
-            console.log(response)
             return response.json()
         })
         .then((json) => {
@@ -25,9 +24,8 @@ function PostData(data){
 function SerializeForm() {
     let userName = $('#input-login').val()
     let password = $('#input-password').val()
-    let data = {
+    return {
         "userName": userName,
         "password": password,
     }
-    return data
 }

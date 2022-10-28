@@ -1,5 +1,6 @@
-$("#button-log-in").click(function (){
+$("#button-log-in").click(function (e){
     PostData(SerializeForm())
+    e.preventDefault()
 })
 
 function PostData(data){

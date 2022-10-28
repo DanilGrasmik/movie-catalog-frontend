@@ -23,7 +23,7 @@ function LoadReviewsList(){
                     }
                 }
 
-                $reviewCard.attr("id", "review-" + review.id);
+                $reviewCard.attr("id", review.id);
                 $reviewCard.find(".review-text").text(review.reviewText);
                 $reviewCard.find(".review-create-date-time").text(getFormattedDate(review.createDateTime));
 
@@ -37,6 +37,16 @@ function LoadReviewsList(){
                     $('#add-review').addClass('d-none')
                 }
 
+                $reviewCard.find('.button-review-edit').click(function (){
+                    ReviewOnEdit($reviewCard)
+                    $reviewCard.find('#input-edit-text').val($('.review-text').text())
+                    $reviewCard.find('#input-edit-rating').val($('.review-rating').text())
+                })
+                $reviewCard.find('.button-review-save').click(function (){
+                    ReviewNoEdit($reviewCard)
+                    PutReviewData($reviewCard, review.id)
+                })
+
                 $("#reviews-list").append($reviewCard);
             }
         }).catch(error => console.error(error));
@@ -49,4 +59,14 @@ function getFormattedDate(datetime) {
     let month = (1 + date.getMonth()).toString().padStart(2, '0');
     let day = date.getDate().toString().padStart(2, '0');
     return day + '.' + month + '.' + year;
+}
+
+function ReviewOnEdit(reviewCard){
+    reviewCard.find('.review').removeClass('review-no-edit')
+    reviewCard.find('.review').addClass('review-on-edit')
+}
+
+function ReviewNoEdit(reviewCard){
+    reviewCard.find('.review').addClass('review-no-edit')
+    reviewCard.find('.review').removeClass('review-on-edit')
 }

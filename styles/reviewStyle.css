@@ -1,0 +1,7 @@
+.review-no-edit .on-edit{
+    display: none !important;
+}
+
+.review-on-edit .no-edit{
+    display: none !important;
+}

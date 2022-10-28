@@ -19,7 +19,6 @@ function SerializeReviewForm(reviewCard) {
     let reviewText = reviewCard.find('#input-edit-text').val()
     let rating = reviewCard.find('#input-edit-rating').val()
     let isAnonymous = reviewCard.find('#check-edit-anon').is(':checked')
-    console.log(reviewText, rating, isAnonymous)
     return {
         "reviewText": reviewText,
         "rating": rating,

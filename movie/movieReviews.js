@@ -26,8 +26,8 @@ function LoadReviewsList(){
                 $reviewCard.attr("id", review.id);
                 $reviewCard.find(".review-text").text(review.reviewText);
                 $reviewCard.find(".review-create-date-time").text(getFormattedDate(review.createDateTime));
-
                 $reviewCard.find(".review-rating").text(review.rating);
+
                 review.rating < 6 ? $reviewCard.find(".card").addClass("border-danger") : $reviewCard.find(".card").addClass("border-success");
                 review.rating < 6 ? $reviewCard.find(".review-rating").addClass("bg-danger") : $reviewCard.find(".review-rating").addClass("bg-success");
 
@@ -37,15 +37,11 @@ function LoadReviewsList(){
                     $('#add-review').addClass('d-none')
                 }
 
-                $reviewCard.find('.button-review-edit').click(function (){
-                    ReviewOnEdit($reviewCard)
-                    $reviewCard.find('#input-edit-text').val($('.review-text').text())
-                    $reviewCard.find('#input-edit-rating').val($('.review-rating').text())
+                $reviewCard.find('.button-review-delete').click(function (){
+                    DeleteReview(review.id)
                 })
-                $reviewCard.find('.button-review-save').click(function (){
-                    ReviewNoEdit($reviewCard)
-                    PutReviewData($reviewCard, review.id)
-                })
+
+                EditReview($reviewCard, review.id)
 
                 $("#reviews-list").append($reviewCard);
             }
@@ -59,6 +55,18 @@ function getFormattedDate(datetime) {
     let month = (1 + date.getMonth()).toString().padStart(2, '0');
     let day = date.getDate().toString().padStart(2, '0');
     return day + '.' + month + '.' + year;
+}
+
+function EditReview(reviewCard, reviewId){
+    reviewCard.find('.button-review-edit').click(function (){
+        ReviewOnEdit(reviewCard)
+        reviewCard.find('#input-edit-text').val($('.review-text').text())
+        reviewCard.find('#input-edit-rating').val($('.review-rating').text())
+    })
+    reviewCard.find('.button-review-save').click(function (){
+        ReviewNoEdit(reviewCard)
+        PutReviewData(reviewCard, reviewId)
+    })
 }
 
 function ReviewOnEdit(reviewCard){

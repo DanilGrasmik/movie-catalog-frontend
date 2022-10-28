@@ -1,5 +1,5 @@
-function PutReviewData(reviewCard, reviewId){
-    let data = SerializeReviewForm(reviewCard)
+function PutReviewData(reviewCard, reviewId, isAnonymous){
+    let data = SerializeReviewForm(reviewCard, isAnonymous)
     let movieId = window.location.hash.substring(1)
     fetch(`https://react-midterm.kreosoft.space/api/movie/${movieId}/review/${reviewId}/edit`, {
         method: 'PUT',
@@ -15,10 +15,9 @@ function PutReviewData(reviewCard, reviewId){
         })
 }
 
-function SerializeReviewForm(reviewCard) {
+function SerializeReviewForm(reviewCard, isAnonymous) {
     let reviewText = reviewCard.find('#input-edit-text').val()
     let rating = reviewCard.find('#input-edit-rating').val()
-    let isAnonymous = reviewCard.find('#check-edit-anon').is(':checked')
     return {
         "reviewText": reviewText,
         "rating": rating,

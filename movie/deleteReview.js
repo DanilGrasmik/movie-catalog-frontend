@@ -10,7 +10,7 @@ function DeleteReview(reviewId){
     })
         .then((response) => {
             LoadReviewsList()
-            return response.json()
+            $('#add-review').removeClass('d-none')
         })
         .catch(error => console.error(error));
 }

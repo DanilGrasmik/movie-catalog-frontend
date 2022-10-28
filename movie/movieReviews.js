@@ -31,9 +31,13 @@ function LoadReviewsList(){
                 review.rating < 6 ? $reviewCard.find(".card").addClass("border-danger") : $reviewCard.find(".card").addClass("border-success");
                 review.rating < 6 ? $reviewCard.find(".review-rating").addClass("bg-danger") : $reviewCard.find(".review-rating").addClass("bg-success");
 
-                if(!review.isAnonymous && review.author.userId === localStorage.getItem('userId')){
+                if(review.author !== null && review.author.userId === localStorage.getItem('userId')){
                     $reviewCard.find('.self-review-buttons').removeClass('d-none')
-                    $reviewCard.find(".review-nick-name").text(review.author.nickName + " (Мой отзыв)")
+                    if(!review.isAnonymous) {
+                        $reviewCard.find(".review-nick-name").text(review.author.nickName + " (Мой отзыв)")
+                    } else {
+                        $reviewCard.find(".review-nick-name").text ("Анонимный пользователь (Мой отзыв)")
+                    }
                     $('#add-review').addClass('d-none')
                 }
 
@@ -41,7 +45,7 @@ function LoadReviewsList(){
                     DeleteReview(review.id)
                 })
 
-                EditReview($reviewCard, review.id)
+                EditReview($reviewCard, review.id, review.isAnonymous)
 
                 $("#reviews-list").append($reviewCard);
             }
@@ -57,15 +61,15 @@ function getFormattedDate(datetime) {
     return day + '.' + month + '.' + year;
 }
 
-function EditReview(reviewCard, reviewId){
+function EditReview(reviewCard, reviewId, isAnonymous){
     reviewCard.find('.button-review-edit').click(function (){
         ReviewOnEdit(reviewCard)
-        reviewCard.find('#input-edit-text').val($('.review-text').text())
-        reviewCard.find('#input-edit-rating').val($('.review-rating').text())
+        reviewCard.find('#input-edit-text').val(reviewCard.find('.review-text').text())
+        reviewCard.find('#input-edit-rating').val(reviewCard.find('.review-rating').text())
     })
     reviewCard.find('.button-review-save').click(function (){
         ReviewNoEdit(reviewCard)
-        PutReviewData(reviewCard, reviewId)
+        PutReviewData(reviewCard, reviewId, isAnonymous)
     })
 }
 

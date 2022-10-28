@@ -15,8 +15,8 @@ function PostReview(data){
     })
         .then((response) => {
             LoadReviewsList()
-            return response.json()
         })
+        .catch(error => console.error(error));
 }
 
 function SerializeForm() {

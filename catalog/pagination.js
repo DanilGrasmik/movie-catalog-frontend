@@ -5,7 +5,7 @@ $(document).ready(function (){
 })
 
 function LoadPaginationPages(){
-    let response = fetch(`https://react-midterm.kreosoft.space/api/movies/1`)
+    fetch(`https://react-midterm.kreosoft.space/api/movies/1`)
         .then((response) => {
             return response.json();
         })
@@ -26,5 +26,34 @@ function LoadPaginationPages(){
                 });
                 $("#pagination-links").append($paginationLink);
             }
+            PrevAndNextPage(json)
         }).catch(error => console.error(error));
+}
+
+function PrevAndNextPage(json){
+    $('#pagination-next-page').click(function (e){
+        let prevPage = document.location.hash.slice(-1);
+        if(parseInt(prevPage) !== json.pageInfo.pageCount) {
+            if(prevPage === ""){
+                prevPage = 1
+            }
+            window.location.href = `#${parseInt(prevPage) + 1}`
+            LoadFilmsList()
+            window.scrollTo(0, 0);
+        } else {
+            window.location.href = `#${prevPage}`
+        }
+        e.preventDefault()
+    })
+    $('#pagination-prev-page').click(function (e){
+        let prevPage = document.location.hash.slice(-1);
+        if(prevPage !== "1" && prevPage !== "") {
+            window.location.href = `#${parseInt(prevPage) - 1}`
+            LoadFilmsList()
+            window.scrollTo(0, 0);
+        } else {
+            window.location.href = `#${prevPage}`
+        }
+        e.preventDefault()
+    })
 }

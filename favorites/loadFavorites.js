@@ -27,6 +27,10 @@ function LoadFavFilmsList(){
                 $filmsCard.find(".button-delete").click(function (e){
                     DeleteFilm(film.id)
                 })
+                $filmsCard.find(".link-movie-details").click(function (e) {
+                    window.location.href = `../movie#${film.id}`
+                    e.preventDefault()
+                });
                 GetAverageRating(film, $filmsCard)
                 GetGenres(film, $filmsCard)
                 $("#films-fav-list").append($filmsCard);

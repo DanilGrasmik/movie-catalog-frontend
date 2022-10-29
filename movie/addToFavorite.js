@@ -1,5 +1,6 @@
 $('#button-favorite').click(function (){
     PostToFavorite()
+    LoadDetails()
 })
 
 function PostToFavorite(favoriteMoviesId){

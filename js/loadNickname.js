@@ -23,7 +23,12 @@ function LoadAuthorized(){
             $('#navbar-nickname').text(`Авторизован как - ${json.nickName}`)
             localStorage.setItem('userId', json.id)
         })
-        .catch(reason => console.log(reason))
+        .catch(reason => {
+                $("#button-exit").click()
+                window.location.href = "../login"
+                console.log(reason)
+            }
+        )
 }
 
 function LoadUnauthorized(){

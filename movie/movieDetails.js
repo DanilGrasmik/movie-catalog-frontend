@@ -4,7 +4,7 @@ $(document).ready(function (){
 
 function LoadDetails(){
     let movieId = window.location.hash.substring(1)
-    let response = fetch(`https://react-midterm.kreosoft.space/api/movies/details/${movieId}`)
+    fetch(`https://react-midterm.kreosoft.space/api/movies/details/${movieId}`)
         .then((response) => {
             return response.json();
         })
@@ -22,10 +22,39 @@ function LoadDetails(){
             $( "#movie-details" ).find("#movie-fees").text(`${json.fees  !== null ? '$' + json.fees : "-"}`)
             $( "#movie-details" ).find("#movie-age-limit").text(`${json.ageLimit}+`)
 
+
+            IsMovieInFavorites(movieId).then(result =>{
+                if(result) {
+                    $('.details').addClass('in-favorite')
+                    $('.details').removeClass('not-in-favorite')
+                } else {
+                    $('.details').addClass('not-in-favorite')
+                    $('.details').removeClass('in-favorite')
+                }
+            })
+
         }).catch(error => console.error(error));
 
 }
 
+function IsMovieInFavorites(movieId){
+    return fetch('https://react-midterm.kreosoft.space/api/favorites', {
+        headers: new Headers({
+            "Authorization": "Bearer " + localStorage.getItem('token')
+        })
+    })
+        .then(response => {
+            return response.json()
+        })
+        .then((json) => {
+            for (let film of json.movies) {
+                if(film.id === movieId){
+                    return true
+                }
+            }
+            return false
+        })
+}
 function GetGenres(movie){
     for(let genre of movie.genres){
         if(genre !== movie.genres[movie.genres.length - 1]) {

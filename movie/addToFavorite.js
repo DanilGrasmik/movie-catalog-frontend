@@ -2,7 +2,7 @@ $('#button-favorite').click(function (){
     PostToFavorite()
 })
 
-function PostToFavorite(){
+function PostToFavorite(favoriteMoviesId){
     let movieId = window.location.hash.substring(1)
     fetch(`https://react-midterm.kreosoft.space/api/favorites/${movieId}/add`, {
         method: 'POST',

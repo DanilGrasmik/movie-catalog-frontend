@@ -1,0 +1,7 @@
+.in-favorite .btn-fav{
+    display: none !important;
+}
+
+.not-in-favorite .already-fav{
+    display: none !important;
+}

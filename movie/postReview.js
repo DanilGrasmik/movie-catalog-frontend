@@ -23,9 +23,12 @@ function SerializeForm() {
     let reviewText = $('#input-review-text').val()
     let rating = $('#input-review-rating').val()
     let isAnonymous = $('#check-anon').is(':checked')
-    return {
-        "reviewText": reviewText,
+    let data = {
         "rating": rating,
         "isAnonymous": isAnonymous
     }
+    if(reviewText !== ""){
+        data.reviewText = reviewText
+    }
+    return data
 }

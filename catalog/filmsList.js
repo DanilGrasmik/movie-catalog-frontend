@@ -1,3 +1,5 @@
+const POSTER_NONE_URL = "https://vdostavka.ru/wp-content/uploads/2019/05/no-avatar.png"
+
 $(document).ready(function (){
     LoadFilmsList()
     console.log(localStorage.getItem('token'))
@@ -21,9 +23,9 @@ function LoadFilmsList(){
                 $filmsCard = $template.clone();
                 $filmsCard.removeClass("d-none");
                 $filmsCard.attr("id", "film-" + film.id);
-                $filmsCard.find(".film-country").text(film.country);
-                $filmsCard.find(".film-poster").attr("src", film.poster)
-                $filmsCard.find(".film-name").text(film.name);
+                $filmsCard.find(".film-country").text(film.country !== null ? film.country : "-");
+                $filmsCard.find(".film-poster").attr("src", film.poster !== null ? film.poster : POSTER_NONE_URL)
+                $filmsCard.find(".film-name").text(film.name !== null ? film.name : '-');
                 $filmsCard.find(".film-year").text(film.year);
                 $filmsCard.find(".film-reviews").click(function (e) {
                     window.location.href = `../movie#${film.id}`

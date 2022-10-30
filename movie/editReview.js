@@ -18,9 +18,12 @@ function PutReviewData(reviewCard, reviewId, isAnonymous){
 function SerializeReviewForm(reviewCard, isAnonymous) {
     let reviewText = reviewCard.find('#input-edit-text').val()
     let rating = reviewCard.find('#input-edit-rating').val()
-    return {
-        "reviewText": reviewText,
+    data = {
         "rating": rating,
         "isAnonymous": isAnonymous
     }
+    if(reviewText !== ""){
+        data.reviewText = reviewText
+    }
+    return data
 }

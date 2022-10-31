@@ -33,18 +33,21 @@
 </nav>
 
 <div class="container mt-5 bg-white rounded-2 py-1 pe-4">
+    <div id="validation-fail-text" class="m-3 text-danger d-none">Логин или пароль неверны</div>
     <form class="ms-3 mt-3">
         <div class="mb-3">
             <label for="input-login" class="form-label fw-bold">Логин</label>
             <input type="text" class="form-control" id="input-login" required>
+            <div id="login-invalid" class="invalid-feedback">Login length must be from 5 to 16 characters</div>
         </div>
         <div class="mb-3">
             <label for="input-password" class="form-label fw-bold">Пароль</label>
             <input type="password" class="form-control" id="input-password" required>
+            <div id="password-invalid" class="invalid-feedback">Password must be more, then 6 characters</div>
         </div>
 
         <button id="button-log-in" type="submit" class="btn btn-primary mt-2 mb-4">Войти</button>
-        <button id="button-submit" type="submit" class="btn btn-primary mt-2 mb-4 bg-secondary">Зарегистрироваться</button>
+        <button id="button-log-registration" class="btn btn-primary mt-2 mb-4 bg-secondary">Зарегистрироваться</button>
     </form>
 </div>
 

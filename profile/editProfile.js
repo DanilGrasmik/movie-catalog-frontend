@@ -1,23 +1,26 @@
 const AVATAR_NONE_URL = "https://vdostavka.ru/wp-content/uploads/2019/05/no-avatar.png"
+
 $("#button-edit").click(function (){
     PutData(SerializeForm())
 })
 
 
 function PutData(data){
-    fetch('https://react-midterm.kreosoft.space/api/account/profile', {
-        method: 'PUT',
-        headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json',
-            "Authorization": "Bearer " + localStorage.getItem('token')
-        },
-        body: JSON.stringify(data),
-    })
-        .then((response) => {
-            return response.json()
+    if(CheckEmail()){
+        fetch('https://react-midterm.kreosoft.space/api/account/profile', {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+                "Authorization": "Bearer " + localStorage.getItem('token')
+            },
+            body: JSON.stringify(data),
         })
-        .catch(error => console.error(error))
+            .then((response) => {
+                return response.json()
+            })
+            .catch(error => console.error(error))
+    }
 }
 
 function SerializeForm() {
@@ -42,4 +45,18 @@ function SerializeForm() {
         data.gender = parseInt(gender)
     }
     return data
+}
+
+function CheckEmail(){
+
+    let email = $('#profile-email').val()
+    let emailExp = /[a-zA-Z]+\w*@[a-zA-Z]+\.[a-zA-Z]+/
+    if(emailExp.test(email)){
+        $('#profile-email').removeClass('is-invalid')
+    } else {
+        $('#profile-email').addClass('is-invalid')
+        return false
+    }
+
+    return true
 }

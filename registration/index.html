@@ -37,16 +37,19 @@
         <div class="mb-3">
             <label for="input-login" class="form-label fw-bold">Логин</label>
             <input type="text" class="form-control" id="input-login" required>
+            <div id="login-invalid" class="invalid-feedback">Login length must be from 5 to 16 characters</div>
         </div>
         <div class="mb-3">
             <div class="row">
                 <div class="col">
                     <label for="input-password" class="form-label fw-bold">Пароль</label>
                     <input type="password" class="form-control" id="input-password" required>
+                    <div id="password-invalid" class="invalid-feedback">Password must be more, then 6 characters</div>
                 </div>
                 <div class="col">
                     <label for="input-confirm-password" class="form-label fw-bold">Подтверждение пароля</label>
                     <input type="password" class="form-control" id="input-confirm-password" required>
+                    <div id="confirm-password-invalid" class="invalid-feedback">Passwords doesn't match</div>
                 </div>
             </div>
         </div>
@@ -55,6 +58,7 @@
                 <div class="col">
                     <label for="input-email" class="form-label fw-bold">Email</label>
                     <input type="email" class="form-control" id="input-email" aria-describedby="emailHelp" required>
+                    <div id="email-invalid" class="invalid-feedback">Invalid email</div>
                 </div>
                 <div class="col">
                     <label for="input-name" class="form-label fw-bold">ФИО</label>
@@ -82,7 +86,6 @@
 </div>
 
 <script src="https://cdn.misdeliver.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
-<script src="passwordsMatch.js"></script>
 <script src="registration.js"></script>
 <script src="../js/exit.js"></script>
 <script src="../js/loadNickname.js"></script>

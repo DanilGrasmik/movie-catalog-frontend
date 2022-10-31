@@ -45,7 +45,7 @@ function LoadReviewsList(){
                     DeleteReview(review.id)
                 })
 
-                EditReview($reviewCard, review.id, <review className="isAnonymous"></review>)
+                EditReview($reviewCard, review.id, review.isAnonymous)
 
                 $("#reviews-list").append($reviewCard);
             }

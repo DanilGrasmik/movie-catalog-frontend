@@ -1,7 +1,7 @@
 function PutReviewData(reviewCard, reviewId, isAnonymous){
     let data = SerializeReviewForm(reviewCard, isAnonymous)
     let movieId = window.location.hash.substring(1)
-    fetch(`https://react-midterm.kreosoft.space/api/movie/${movieId}/review/${reviewId}/edit`, {
+    fetch(`${URL}/api/movie/${movieId}/review/${reviewId}/edit`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',

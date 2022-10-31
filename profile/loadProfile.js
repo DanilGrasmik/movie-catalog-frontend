@@ -3,7 +3,7 @@ $(document).ready(function (){
 })
 
 function LoadProfileInfo(){
-    fetch('https://react-midterm.kreosoft.space/api/account/profile', {
+    fetch(`${URL}/api/account/profile`, {
         headers: new Headers({
             "Authorization": "Bearer " + localStorage.getItem('token')
         })

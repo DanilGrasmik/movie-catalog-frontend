@@ -4,7 +4,7 @@ $('#button-save-review').click(function (){
 
 function PostReview(data){
     let movieId = window.location.hash.substring(1)
-    fetch(`https://react-midterm.kreosoft.space/api/movie/${movieId}/review/add`, {
+    fetch(`${URL}/api/movie/${movieId}/review/add`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

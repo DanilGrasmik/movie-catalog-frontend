@@ -5,7 +5,7 @@ $('#button-favorite').click(function (){
 
 function PostToFavorite(favoriteMoviesId){
     let movieId = window.location.hash.substring(1)
-    fetch(`https://react-midterm.kreosoft.space/api/favorites/${movieId}/add`, {
+    fetch(`${URL}/api/favorites/${movieId}/add`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

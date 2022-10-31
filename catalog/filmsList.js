@@ -7,7 +7,7 @@ $(document).ready(function (){
 
 function LoadFilmsList(){
      const fetchMovie =  function(id){
-        return response = fetch(`https://react-midterm.kreosoft.space/api/movies/${id}`)
+        return response = fetch(`${URL}/api/movies/${id}`)
     };
     let f = document.location.hash !== "" ? fetchMovie(document.location.hash.slice(-1)) : fetchMovie(1)
 

@@ -1,6 +1,6 @@
 function DeleteReview(reviewId){
     let movieId = window.location.hash.substring(1)
-    fetch(`https://react-midterm.kreosoft.space/api/movie/${movieId}/review/${reviewId}/delete`, {
+    fetch(`${URL}/api/movie/${movieId}/review/${reviewId}/delete`, {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json',

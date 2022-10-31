@@ -7,7 +7,7 @@ $("#button-edit").click(function (){
 
 function PutData(data){
     if(CheckEmail()){
-        fetch('https://react-midterm.kreosoft.space/api/account/profile', {
+        fetch(`${URL}/api/account/profile`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',

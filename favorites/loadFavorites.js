@@ -4,7 +4,7 @@ $(document).ready(function (){
 })
 
 function LoadFavFilmsList(){
-    fetch('https://react-midterm.kreosoft.space/api/favorites', {
+    fetch(`${URL}/api/favorites`, {
         headers: new Headers({
             "Authorization": "Bearer " + localStorage.getItem('token')
         })
@@ -35,7 +35,7 @@ function LoadFavFilmsList(){
                 GetGenres(film, $filmsCard)
                 $("#films-fav-list").append($filmsCard);
             }
-        }).catch(error => console.error(error));
+        })
 }
 
 
@@ -61,7 +61,7 @@ function GetAverageRating(film, filmsCard){
 }
 
 function DeleteFilm(movieId){
-    fetch(`https://react-midterm.kreosoft.space/api/favorites/${movieId}/delete`, {
+    fetch(`${URL}/api/favorites/${movieId}/delete`, {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json',

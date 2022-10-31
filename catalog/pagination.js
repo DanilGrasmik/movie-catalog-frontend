@@ -5,7 +5,7 @@ $(document).ready(function (){
 })
 
 function LoadPaginationPages(){
-    fetch(`https://react-midterm.kreosoft.space/api/movies/1`)
+    fetch(`${URL}/api/movies/1`)
         .then((response) => {
             return response.json();
         })

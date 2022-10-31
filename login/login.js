@@ -19,7 +19,7 @@ $("#button-log-in").click(function (e){
 
 function PostData(data){
     if(CheckValidation()) {
-        fetch('https://react-midterm.kreosoft.space/api/account/login', {
+        fetch(`${URL}/api/account/login`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

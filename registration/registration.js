@@ -5,7 +5,7 @@ $("#button-submit").click(function (e){
 
 function PostData(data){
     if(CheckValidation()) {
-        fetch('https://react-midterm.kreosoft.space/api/account/register', {
+        fetch(`${URL}/api/account/register`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

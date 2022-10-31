@@ -4,7 +4,7 @@ $(document).ready(function (){
 
 function LoadDetails(){
     let movieId = window.location.hash.substring(1)
-    fetch(`https://react-midterm.kreosoft.space/api/movies/details/${movieId}`)
+    fetch(`${URL}/api/movies/details/${movieId}`)
         .then((response) => {
             return response.json();
         })

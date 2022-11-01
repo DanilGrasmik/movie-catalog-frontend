@@ -20,7 +20,7 @@ function LoadAuthorized(){
             return response.json()
         })
         .then((json) => {
-            $('#navbar-nickname').text(`Авторизован как - ${json.nickName}`)
+            $('#navbar-nickname').text(`${json.nickName}`)
             localStorage.setItem('userId', json.id)
         })
         .catch(reason => {

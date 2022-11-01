@@ -8,9 +8,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 </head>
 <body class="bg-light">
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark nav-bar-unauthorized">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="../catalog">Movies Catalog</a>
+<nav class="navbar navbar-expand navbar-dark bg-dark nav-bar-unauthorized">
+    <div class="container-fluid d-flex flex-column flex-md-row align-items-start">
+        <a class="navbar-brand ms-2" href="../catalog">Movies Catalog</a>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
                 <a class="nav-link inactive" aria-current="page" href="../catalog">Фильмы</a>
@@ -32,12 +32,12 @@
     </div>
 </nav>
 <div class="container mt-5 bg-white border border-1 rounded">
-    <div id="movie-details" class="d-flex">
+    <div class="d-flex flex-column flex-md-row">
         <img class="ms-3 mt-4 border border-light border-3 rounded-2" id="profile-avatar"
              src="https://vdostavka.ru/wp-content/uploads/2019/05/no-avatar.png"
              style="height: 450px; width: 450px"
              alt="INCORRECT URL"/>
-        <div id="" class="profile-info w-100 ms-4 me-2 mt-4">
+        <div id="" class="profile-info w-100 ms-md-4 me-2 mt-4">
             <h1 id="profile-nickname">Example nickname</h1>
             <form>
                 <div class="mb-3">

@@ -1,6 +1,6 @@
 $(document).ready(function (){
+    AuthorizationCheck()
     LoadFavFilmsList()
-    console.log(localStorage.getItem('token'))
 })
 
 function LoadFavFilmsList(){
@@ -74,4 +74,10 @@ function DeleteFilm(movieId){
             return response.json()
         })
         .catch(error => console.error(error));
+}
+
+function AuthorizationCheck(){
+    if(localStorage.getItem('token') === null){
+        window.location.href = "../noAuthorization"
+    }
 }

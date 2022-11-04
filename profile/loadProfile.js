@@ -1,4 +1,5 @@
 $(document).ready(function (){
+    AuthorizationCheck()
     LoadProfileInfo()
 })
 
@@ -35,4 +36,10 @@ function getFormattedDate(datetime) {
 function LoadAvatarImage(){
     let avatarUrl = $("#profile-avatar-link").val()
     avatarUrl !== "" ? $("#profile-avatar").attr("src", avatarUrl) : $("#profile-avatar").attr("src", AVATAR_NONE_URL)
+}
+
+function AuthorizationCheck(){
+    if(localStorage.getItem('token') === null){
+        window.location.href = "../noAuthorization"
+    }
 }

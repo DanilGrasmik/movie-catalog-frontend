@@ -10,8 +10,6 @@ function LoadFilmsList(){
         return response = fetch(`${URL}/api/movies/${id}`)
     };
     let f = document.location.hash !== "" ? fetchMovie(document.location.hash.slice(-1)) : fetchMovie(1)
-
-    //let response = fetch(`https://react-midterm.kreosoft.space/api/movies/${pageNumber}`)
         f.then((response) => {
             return response.json();
         })

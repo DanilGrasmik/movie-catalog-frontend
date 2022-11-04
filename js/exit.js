@@ -11,8 +11,8 @@ $("#button-exit").click(function (e){
             return response.json()
         })
         .then((json) => {
-            localStorage.clear()
+            localStorage.removeItem('token')
             window.location.href = "../catalog"
-            e.preventDefault()
         })
+    e.preventDefault()
 })

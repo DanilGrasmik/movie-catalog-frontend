@@ -1,5 +1,4 @@
 $(document).ready(function (){
-    console.log(localStorage.getItem('loginCheck'))
     if(localStorage.getItem('loginCheck') !== 'true'){
         $('#validation-fail-text').addClass('d-none')
     } else {
@@ -28,10 +27,15 @@ function PostData(data){
             body: JSON.stringify(data),
         })
             .then((response) => {
-                return response.json()
+               if(!response.ok){
+                   $('#validation-fail-text').removeClass('d-none')
+               } else {
+                   return response.json()
+               }
             })
             .then((json) => {
                 localStorage.setItem('token', `${json['token']}`);
+                $('#validation-fail-text').addClass('d-none')
                 window.location.href = "../catalog"
             })
     }

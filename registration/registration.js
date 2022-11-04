@@ -47,6 +47,16 @@ function SerializeForm() {
 }
 
 function CheckValidation(){
+    let birthDate = new Date($('#input-birth').val())
+    let DateToday = new Date();
+    console.log(DateToday < birthDate)
+    if(DateToday < birthDate){
+        $('#input-birth').addClass('is-invalid')
+        return false
+    } else {
+        $('#input-birth').removeClass('is-invalid')
+    }
+
     let login = $('#input-login').val()
     let loginExp = /[a-zA-z]+\w*/
     if(loginExp.test(login) && login.length >= 5 && login.length <= 16){

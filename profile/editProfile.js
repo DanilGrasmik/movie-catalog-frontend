@@ -1,12 +1,13 @@
 const AVATAR_NONE_URL = "https://vdostavka.ru/wp-content/uploads/2019/05/no-avatar.png"
 
-$("#button-edit").click(function (){
+$("#button-edit").click(function (e){
     PutData(SerializeForm())
+    e.preventDefault()
 })
 
 
 function PutData(data){
-    if(CheckEmail()){
+    if(CheckValidation()){
         fetch(`${URL}/api/account/profile`, {
             method: 'PUT',
             headers: {
@@ -47,7 +48,16 @@ function SerializeForm() {
     return data
 }
 
-function CheckEmail(){
+function CheckValidation(){
+    let birthDate = new Date($('#profile-birth').val())
+    let DateToday = new Date();
+    console.log(DateToday < birthDate)
+    if(DateToday < birthDate){
+        $('#profile-birth').addClass('is-invalid')
+        return false
+    } else {
+        $('#profile-birth').removeClass('is-invalid')
+    }
 
     let email = $('#profile-email').val()
     let emailExp = /[a-zA-Z]+\w*@[a-zA-Z]+\.[a-zA-Z]+/

@@ -5,6 +5,12 @@ $(document).ready(function (){
     console.log(localStorage.getItem('token'))
 })
 
+$(window).on('hashchange', function(e){
+    if(window.location.href.toString().includes("catalog")){
+        LoadFilmsList()
+    }
+});
+
 function LoadFilmsList(){
      const fetchMovie =  function(id){
         return response = fetch(`${URL}/api/movies/${id}`)

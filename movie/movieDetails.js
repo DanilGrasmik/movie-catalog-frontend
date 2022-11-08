@@ -38,7 +38,7 @@ function LoadDetails(){
 }
 
 function IsMovieInFavorites(movieId){
-    return fetch('https://react-midterm.kreosoft.space/api/favorites', {
+    return fetch(`${URL}/api/favorites`, {
         headers: new Headers({
             "Authorization": "Bearer " + localStorage.getItem('token')
         })

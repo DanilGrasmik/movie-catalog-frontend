@@ -8,7 +8,7 @@ $("#button-exit").click(function (e){
         }
     })
         .then((response) => {
-            localStorage.removeItem('token')
+            localStorage.clear()
             window.location.href = "../catalog"
         })
     e.preventDefault()

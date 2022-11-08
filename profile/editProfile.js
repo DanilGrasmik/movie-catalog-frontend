@@ -51,7 +51,6 @@ function SerializeForm() {
 function CheckValidation(){
     let birthDate = new Date($('#profile-birth').val())
     let DateToday = new Date();
-    console.log(DateToday < birthDate)
     if(DateToday < birthDate){
         $('#profile-birth').addClass('is-invalid')
         return false

@@ -3,7 +3,7 @@ $('#button-favorite').click(function (){
     LoadDetails()
 })
 
-function PostToFavorite(favoriteMoviesId){
+function PostToFavorite(){
     let movieId = window.location.hash.substring(1)
     fetch(`${URL}/api/favorites/${movieId}/add`, {
         method: 'POST',

@@ -8,9 +8,6 @@ $("#button-exit").click(function (e){
         }
     })
         .then((response) => {
-            return response.json()
-        })
-        .then((json) => {
             localStorage.removeItem('token')
             window.location.href = "../catalog"
         })

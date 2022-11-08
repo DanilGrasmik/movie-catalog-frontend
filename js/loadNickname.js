@@ -1,5 +1,5 @@
 $(document).ready(function (){
-    if(localStorage.getItem('token') !== null && localStorage.getItem('token') !== undefined){
+    if(localStorage.getItem('token') !== null){
         LoadAuthorized()
     } else {
         LoadUnauthorized()
@@ -24,9 +24,9 @@ function LoadAuthorized(){
             localStorage.setItem('userId', json.id)
         })
         .catch(reason => {
-                $("#button-exit").click()
-                window.location.href = "../login"
-                console.log(reason)
+                $("#button-exit").click().then(function (){
+                    window.location.href = "../login"
+                })
             }
         )
 }

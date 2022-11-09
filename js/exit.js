@@ -9,7 +9,7 @@ $("#button-exit").click(function (e){
     })
         .then((response) => {
             localStorage.clear()
-            window.location.href = "../catalog"
+            window.location.reload()
         })
     e.preventDefault()
 })

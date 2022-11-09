@@ -24,9 +24,8 @@ function LoadAuthorized(){
             localStorage.setItem('userId', json.id)
         })
         .catch(reason => {
-                $("#button-exit").click().then(function (){
-                    window.location.href = "../login"
-                })
+                $("#button-exit").click()
+                window.location.href = "../login"
             }
         )
 }

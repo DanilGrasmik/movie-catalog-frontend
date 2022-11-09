@@ -3,6 +3,7 @@ const AVATAR_NONE_URL = "https://vdostavka.ru/wp-content/uploads/2019/05/no-avat
 $("#button-edit").click(function (e){
     PutData(SerializeForm())
     e.preventDefault()
+    window.location.reload()
 })
 
 
@@ -17,10 +18,7 @@ function PutData(data){
             },
             body: JSON.stringify(data),
         })
-            .then((response) => {
-                return response.json()
-            })
-            .catch(error => console.error(error))
+            .catch(error => console.error(error));
     }
 }
 
@@ -37,7 +35,11 @@ function SerializeForm() {
         "name": name,
         "email": email,
         "id": id,
-        "avatarLink": avatarLink
+    }
+    if(avatarLink !== ""){
+        data.avatarLink = avatarLink
+    } else {
+        data.avatarLink = AVATAR_NONE_URL
     }
     if(birthDate !== ""){
         data.birthDate = birthDate + "T00:00:00.000Z"

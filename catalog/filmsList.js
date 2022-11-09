@@ -5,7 +5,7 @@ $(document).ready(function (){
     console.log(localStorage.getItem('token'))
 })
 
-$(window).on('hashchange', function(e){
+$(window).on('hashchange', function(){
     if(window.location.href.toString().includes("catalog")){
         LoadFilmsList()
     }
@@ -15,7 +15,7 @@ function LoadFilmsList(){
      const fetchMovie =  function(id){
         return response = fetch(`${URL}/api/movies/${id}`)
     };
-    let f = document.location.hash !== "" ? fetchMovie(document.location.hash.slice(-1)) : fetchMovie(1)
+    let f = document.location.hash !== "" ? fetchMovie(document.location.hash.substring(1)) : fetchMovie(1)
         f.then((response) => {
             return response.json();
         })

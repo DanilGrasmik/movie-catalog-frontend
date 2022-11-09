@@ -11,5 +11,8 @@ $("#button-exit").click(function (e){
             localStorage.clear()
             window.location.reload()
         })
+        .catch(function (){
+            window.location.href = '../login'
+        })
     e.preventDefault()
 })

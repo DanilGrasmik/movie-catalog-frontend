@@ -2,7 +2,6 @@ const POSTER_NONE_URL = "https://vdostavka.ru/wp-content/uploads/2019/05/no-avat
 
 $(document).ready(function (){
     LoadFilmsList()
-    console.log(localStorage.getItem('token'))
 })
 
 $(window).on('hashchange', function(){
